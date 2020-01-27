@@ -102,6 +102,7 @@ def main():
         # handle dist_1 == dist_2 - do not change the class in this case
         eq_indices = (dist_1 == dist_2).astype(int)
         classified_samples = classified_samples * eq_indices + new_classified_samples * (1 - eq_indices)
+        classified_samples = classified_samples.reshape((2000,))
 
         # calc new means
         classified_1 = samples[:, classified_samples == 0]
